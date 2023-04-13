@@ -8,19 +8,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject2.Controllers
 {
-    public class EventController : Controller
+    public class UserController : Controller
     {
-        private readonly IEventRepository repo;
+        private readonly IUserRepository repo;
 
-        public EventController(IEventRepository repo)
+        public UserController(IUserRepository repo)
         {
             this.repo = repo;
         }
 
-        public IActionResult Index()
+        public IActionResult UserIndex()
         {
-            var events = repo.GetAllEvents();
-            return View(events);
+            var users = repo.GetAllUsers();
+
+            return View(users);
         }
     }
 }

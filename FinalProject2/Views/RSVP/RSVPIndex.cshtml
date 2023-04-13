@@ -1,0 +1,21 @@
+﻿@model IEnumerable<RSVP>
+
+<h2>RSVPs</h2>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Event ID</th>
+        <th>User ID</th>
+    </tr>
+
+    @foreach (var response in @Model)
+    {
+        <tr>
+            <td>@response.RSVPID</td>
+            <td>@response.EventID</td>
+            <td>@response.UserID</td>
+        </tr>
+    }
+
+</table>
+

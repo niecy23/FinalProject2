@@ -8,19 +8,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject2.Controllers
 {
-    public class EventController : Controller
+    public class RSVPController : Controller
     {
-        private readonly IEventRepository repo;
+        private readonly IRSVPRepository repo;
 
-        public EventController(IEventRepository repo)
+        public RSVPController(IRSVPRepository repo)
         {
             this.repo = repo;
         }
 
-        public IActionResult Index()
+
+        public IActionResult RSVPIndex()
         {
-            var events = repo.GetAllEvents();
-            return View(events);
+            var RSVPs = repo.GetAllRSVPs();
+            return View(RSVPs);
         }
     }
 }

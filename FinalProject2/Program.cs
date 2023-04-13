@@ -16,6 +16,10 @@ builder.Services.AddScoped<IDbConnection>((s) =>
 
 builder.Services.AddTransient<IEventRepository, EventRepository>();
 
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+
+builder.Services.AddTransient<IRSVPRepository, RSVPRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

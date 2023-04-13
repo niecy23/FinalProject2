@@ -8,11 +8,10 @@ namespace FinalProject2.Models
 		}
 
         public int EventID { get; set; }
-        public int EventName { get; set; }
-        public int Date { get; set; }
-        public int Time { get; set; }
-        public int Location { get; set; }
-        public int Description { get; set; }
+        public string EventName { get; set; }
+        public DateTime DateAndTime { get; set; }
+        public string Location { get; set; }
+        public byte [] Description { get; set; }
 
     }
 }
