@@ -1,0 +1,22 @@
+﻿@model Event
+
+<h2>Update @Model.EventName</h2>
+
+@using (Html.BeginForm("UpdateEventToDatabase", "Event", "Post"))
+{
+    <input asp-for="EventID" type="hidden" value="@Model.EventID" />
+
+    <label asp-for="EventName" class="control-label">Event Name</label>
+    <input type="text" name="Event Name" class="form-control" value="@Model.EventName" />
+
+    <label asp-for="DateAndTime" class="control-label">Date and Time</label>
+    <input type="datetime" name="Date and Time" class="form-control" value="@Model.DateAndTime" />
+
+    <label asp-for="Location" class="control-label">Location</label>
+    <input type="text" name="Location" class="form-control" value="@Model.Location" />
+
+    <label asp-for="Description" class="control-label">Description</label>
+    <input type="text" name="Description" class="form-control" value="@Model.Description" />
+
+    <input type="submit" value="Update Event" class="btn btn-primary" />
+}

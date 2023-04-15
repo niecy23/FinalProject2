@@ -14,9 +14,32 @@ namespace FinalProject2
             _conn = conn;
         }
 
+        public void DeleteEvent(Event instance)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Event> GetAllEvents()
         {
             return _conn.Query<Event>("SELECT * FROM EVENTS;");
+        }
+
+        public Event GetEvent(int id)
+        {
+            return _conn.QuerySingle<Event>("SELECT * FROM EVENTS WHERE EVENTID = @id", new { id = id });
+        }
+
+        public void InsertEvent(Event instanceToInsert)
+        {
+            _conn.Execute("INSERT INTO Events (EventName, DateAndTime, Location, Description) VALUES (@eventname, @dateandtime, @location, @description);",
+        new { eventname = instanceToInsert.EventName, dateandtime = instanceToInsert.DateAndTime, Location = instanceToInsert.Location, description = instanceToInsert.Description });
+
+        }
+
+        public void UpdateEvent(Event instance)
+        {
+            _conn.Execute("UPDATE Events SET EventName = @name, DateAndTime = @dateandtime, Location = @location, Description = @description WHERE EventID = @id",
+            new{ name = instance.EventName, dateandtime = instance.DateAndTime, location = instance.Location, description = instance.Description, id = instance.EventID });
         }
     }
 }

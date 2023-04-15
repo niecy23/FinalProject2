@@ -1,0 +1,24 @@
+﻿@model Event
+
+<h3>@Model.EventName Information</h3>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date and Time</th>
+        <th>Location</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>@Model.EventID</td>
+        <td>@Model.EventName</td>
+        <td>@Model.DateAndTime</td>
+        <td>@Model.Location</td>
+        <td>@Model.Description</td>
+    </tr>
+</table>
+
+<div style="display: block">
+    <a href="/Event/UpdateEvent/@Model.EventID">Update this Event</a>
+</div>
