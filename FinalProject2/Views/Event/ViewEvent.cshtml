@@ -22,3 +22,12 @@
 <div style="display: block">
     <a href="/Event/UpdateEvent/@Model.EventID">Update this Event</a>
 </div>
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteEvent", "Event", "Post"))
+    {
+        <input type="hidden" asp-for="EventID" value="@Model.EventID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this event" />
+    }
+</div>

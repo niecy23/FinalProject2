@@ -1,11 +1,10 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using Dapper;
 using FinalProject2.Models;
 
 namespace FinalProject2
 {
-	public class EventRepository : IEventRepository
+    public class EventRepository : IEventRepository
 	{
         private readonly IDbConnection _conn;
 
@@ -16,7 +15,8 @@ namespace FinalProject2
 
         public void DeleteEvent(Event instance)
         {
-            throw new NotImplementedException();
+            _conn.Execute("DELETE FROM Events WHERE EventID = @id;", new { id = instance.EventID });
+            _conn.Execute("DELETE FROM RSVPs WHERE EventID = @id;", new { id = instance.EventID });
         }
 
         public IEnumerable<Event> GetAllEvents()
