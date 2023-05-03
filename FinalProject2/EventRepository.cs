@@ -31,8 +31,8 @@ namespace FinalProject2
 
         public void InsertEvent(Event instanceToInsert)
         {
-            _conn.Execute("INSERT INTO Events (EventName, DateAndTime, Location, Description) VALUES (@eventname, @dateandtime, @location, @description);",
-        new { eventname = instanceToInsert.EventName, dateandtime = instanceToInsert.DateAndTime, Location = instanceToInsert.Location, description = instanceToInsert.Description });
+            _conn.Execute("INSERT INTO Events (EVENTNAME, DATEANDTIME, LOCATION, DESCRIPTION) VALUES (@eventname, @dateandtime, @location, @description);",
+            new { eventname = instanceToInsert.EventName, dateandtime = instanceToInsert.DateAndTime, Location = instanceToInsert.Location, description = instanceToInsert.Description });
 
         }
 

@@ -11,7 +11,7 @@ namespace FinalProject2.Models
         public string EventName { get; set; }
         public DateTime DateAndTime { get; set; }
         public string Location { get; set; }
-        public byte [] Description { get; set; }
+        public string Description { get; set; }
 
     }
 }

@@ -47,24 +47,22 @@ namespace FinalProject2.Controllers
             return RedirectToAction("ViewEvent", new { id = instance.EventID });
         }
 
-        public IActionResult InsertEvent(Event instanceToInsert)
+        public IActionResult InsertEvent()
         {
-            repo.InsertEvent(instanceToInsert);
-            return View(instanceToInsert);
+            var instance = new Event();
+            return View(instance);
         }
 
         public IActionResult InsertEventToDatabase(Event instanceToInsert)
         {
             repo.InsertEvent(instanceToInsert);
             return RedirectToAction("Index");
+            //}
         }
-
         public IActionResult DeleteEvent(Event instance)
         {
             repo.DeleteEvent(instance);
             return RedirectToAction("Index");
         }
-
     }
 }
-

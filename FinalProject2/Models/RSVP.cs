@@ -9,7 +9,9 @@ namespace FinalProject2.Models
 
         public int RSVPID { get; set; }
         public int EventID { get; set; }
-        public int UserID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public IEnumerable<Event> Events { get; set; }
     }
 }
 
