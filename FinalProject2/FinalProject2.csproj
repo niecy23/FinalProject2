@@ -14,12 +14,10 @@
   <ItemGroup>
     <None Remove="Views\Event\" />
     <None Remove="Views\User\" />
-    <None Remove="Views\RSVP\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Event\" />
     <Folder Include="bin\Debug\net6.0\" />
     <Folder Include="Views\User\" />
-    <Folder Include="Views\RSVP\" />
   </ItemGroup>
 </Project>

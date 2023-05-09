@@ -29,22 +29,32 @@ namespace FinalProject2
             return _conn.QuerySingle<Event>("SELECT * FROM EVENTS WHERE EVENTID = @id", new { id = id });
         }
 
-        public int GetRSVPCount()
-        {
-            return _conn.Query<User>("SELECT * FROM USERS WHERE EventID = @id;").Count();
-        }
-
         public void InsertEvent(Event instanceToInsert)
         {
             _conn.Execute("INSERT INTO Events (EVENTNAME, DATEANDTIME, LOCATION, DESCRIPTION) VALUES (@eventname, @dateandtime, @location, @description);",
             new { eventname = instanceToInsert.EventName, dateandtime = instanceToInsert.DateAndTime, Location = instanceToInsert.Location, description = instanceToInsert.Description });
-
         }
 
         public void UpdateEvent(Event instance)
         {
             _conn.Execute("UPDATE Events SET EventName = @name, DateAndTime = @dateandtime, Location = @location, Description = @description WHERE EventID = @id",
             new{ name = instance.EventName, dateandtime = instance.DateAndTime, location = instance.Location, description = instance.Description, id = instance.EventID });
+        }
+
+
+
+        public int GetRSVPCount(int id)
+        {
+            return _conn.Query<User>("SELECT * FROM USERS WHERE EventID = @id;").Count();
+        }
+        public IEnumerable<User> GetAllRSVPs(int id)
+        {
+            return _conn.Query<User>("SELECT Events.EventID, Users.FirstName, Users.LastName FROM Events INNER JOIN Users ON Events.EventID = Users.EventID WHERE Events.EventID = @id;");
+        }
+
+        public User GetRSVPs(int id)
+        {
+            return (User)_conn.Query<User>("SELECT * FROM USERS WHERE EventID = @id;");
         }
     }
 }

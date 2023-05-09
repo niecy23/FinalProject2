@@ -64,5 +64,11 @@ namespace FinalProject2.Controllers
             repo.DeleteEvent(instance);
             return RedirectToAction("Index");
         }
+
+        public IActionResult RSVPs(int id)
+        {
+            var rsvps = repo.GetAllRSVPs(id);
+            return View(rsvps);
+        }
     }
 }

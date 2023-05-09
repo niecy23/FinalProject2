@@ -14,6 +14,8 @@ namespace FinalProject2.Models
         public DateTime DateAndTime { get; set; }
         public string Location { get; set; }
         public string Description { get; set; }
-	}
+
+        public int UserID { get; set; }
+    }
 }
 

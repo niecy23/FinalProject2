@@ -13,6 +13,8 @@ namespace FinalProject2.Models
         public string Location { get; set; }
         public string Description { get; set; }
 
+        public IEnumerable<Event> Events { get; set; }
+
     }
 }
 
