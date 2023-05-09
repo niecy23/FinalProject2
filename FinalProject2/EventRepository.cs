@@ -16,7 +16,6 @@ namespace FinalProject2
         public void DeleteEvent(Event instance)
         {
             _conn.Execute("DELETE FROM Events WHERE EventID = @id;", new { id = instance.EventID });
-            _conn.Execute("DELETE FROM RSVPs WHERE EventID = @id;", new { id = instance.EventID });
         }
 
         public IEnumerable<Event> GetAllEvents()
@@ -47,14 +46,14 @@ namespace FinalProject2
         {
             return _conn.Query<User>("SELECT * FROM USERS WHERE EventID = @id;").Count();
         }
-        public IEnumerable<User> GetAllRSVPs(int id)
+        public IEnumerable<Event> GetAllRSVPs(int id)
         {
-            return _conn.Query<User>("SELECT Events.EventID, Users.FirstName, Users.LastName FROM Events INNER JOIN Users ON Events.EventID = Users.EventID WHERE Events.EventID = @id;");
+            return _conn.Query<Event>("SELECT Events.EventID, Users.FirstName, Users.LastName FROM Events INNER JOIN Users ON Events.EventID = Users.EventID WHERE Events.EventID = @id;");
         }
 
-        public User GetRSVPs(int id)
+        public IEnumerable<User> GetRSVPs(int id)
         {
-            return (User)_conn.Query<User>("SELECT * FROM USERS WHERE EventID = @id;");
+            return _conn.Query<User>("SELECT * FROM USERS WHERE EventID = @id;");
         }
     }
 }

@@ -2,7 +2,7 @@
 
 <h2>@Model.EventName Information</h2>
 
-<h3 class="display-4">RSVP Count: @Model</h3>
+<h5 class="display-7">RSVP Count: @Model</h5>
 
 <table class="table">
     <tr>
@@ -13,7 +13,7 @@
         <th>Description</th>
     </tr>
     <tr>
-        <td>@Model.EventID</td>
+        <td><a href=/Event/GetRSVPCount/@Model.EventID>@Model.EventID </a></td>
         <td>@Model.EventName</td>
         <td>@Model.DateAndTime</td>
         <td>@Model.Location</td>

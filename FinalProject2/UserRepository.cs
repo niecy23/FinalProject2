@@ -26,7 +26,6 @@ namespace FinalProject2
         public void DeleteUser(User user)
         {
             _conn.Execute("DELETE FROM Users WHERE UserID = @id;", new { id = user.UserID });
-            //_conn.Execute("DELETE FROM RSVPs WHERE UserID = @id;", new { id = user.UserID });
         }
 
         public IEnumerable<Event> GetAllEvents()
@@ -40,9 +39,7 @@ namespace FinalProject2
         }
 
         public User GetUser(int id)
-        {
-            //return _conn.QuerySingle<User>("SELECT * FROM USERS WHERE USERID = @id", new { id = id });
-
+        { 
             return _conn.QuerySingle<User>("SELECT Users.UserID, Users.FirstName, Users.LastName, Users.EmailAddress, Users.PhoneNumber, Events.EventID, Events.EventName\nFROM Events INNER JOIN Users ON Users.EventID = Events.EventID WHERE USERID = @id", new { id = id });
         }
 

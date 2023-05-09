@@ -13,8 +13,8 @@ namespace FinalProject2
 
 
         public int GetRSVPCount(int id);
-        public IEnumerable<User> GetAllRSVPs(int id);
-        public User GetRSVPs(int id);
+        public IEnumerable<Event> GetAllRSVPs(int id);
+        public IEnumerable<User> GetRSVPs(int id);
     }
 }
 
