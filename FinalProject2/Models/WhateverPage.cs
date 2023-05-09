@@ -1,13 +1,15 @@
 ﻿using System;
 namespace FinalProject2.Models
 {
-	public class WhateverPage
-	{
-		public WhateverPage()
-		{
-			var instance = new Event();
-			var user = new User();
-		}
+    public class WhateverPage
+    {
+        public WhateverPage(int id)
+        {
+            Event instance = new Event();
+            User user = new User();
+        }
+
+
 
         public int EventID { get; set; }
         public string EventName { get; set; }
@@ -16,6 +18,14 @@ namespace FinalProject2.Models
         public string Description { get; set; }
 
         public int UserID { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string EmailAddress { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+        public IEnumerable<Event> Events { get; set; }
+
+
+
     }
 }
 

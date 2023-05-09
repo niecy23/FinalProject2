@@ -65,21 +65,22 @@ namespace FinalProject2.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult GetAllRSVPs(int id)
+        public IActionResult GetUsersByEvent(int id)
         {
-            var rsvps = repo.GetAllRSVPs(id);
+            var rsvps = repo.GetUsersByEvent(id);
             return View(rsvps);
         }
 
         public IActionResult WhateverPage (int id)
         {
             var instance = repo.GetEvent(id);
+
             return View(instance);
         }
 
         public IActionResult GetRSVPCount (int id)
         {
-            var rsvps = repo.GetAllRSVPs(id);
+            var rsvps = repo.GetUsersByEvent(id);
             return View(rsvps);
         }
     }

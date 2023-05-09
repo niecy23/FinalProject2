@@ -1,9 +1,9 @@
-﻿@model WhateverPage
+﻿<TModel>WhateverPage </TModel>
 
-<h3>@Model.EventName Information</h3>
+<h2>@Model.EventName Information</h2>
 
 
-<h1 class="display-4">RSVP Count: @Model</h1>
+<h3 class="display-4">RSVP Count: @Model</h3>
 
 <table class="table">
     <tr>
@@ -34,4 +34,38 @@
         <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this Event" />
     }
 </div>
+
+<h2>Users</h2>
+
+<div style="display: block">
+    <a href="/User/InsertUser/">Create a New User</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+        <th>Event ID</th>
+        <th>Event Name</th>
+    </tr>
+
+    @foreach (var user in @Model)
+    {
+        <tr>
+            <td><a href=/User/ViewUser/@user.UserID>@user.UserID</a></td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.EmailAddress</td>
+            <td>@user.PhoneNumber</td>
+            <td>@user.EventID</td>
+            <td>@user.EventName</td>
+        </tr>
+    }
+
+</table>
+
+
 

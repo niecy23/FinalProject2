@@ -46,7 +46,7 @@ namespace FinalProject2
         {
             return _conn.Query<User>("SELECT * FROM USERS WHERE EventID = @id;").Count();
         }
-        public IEnumerable<Event> GetAllRSVPs(int id)
+        public IEnumerable<Event> GetUsersByEvent(int id)
         {
             return _conn.Query<Event>("SELECT Events.EventID, Users.FirstName, Users.LastName FROM Events INNER JOIN Users ON Events.EventID = Users.EventID WHERE Events.EventID = @id;");
         }
@@ -54,6 +54,11 @@ namespace FinalProject2
         public IEnumerable<User> GetRSVPs(int id)
         {
             return _conn.Query<User>("SELECT * FROM USERS WHERE EventID = @id;");
+        }
+
+        public IEnumerable<User> GetAllUsers(int id)
+        {
+            return _conn.Query<User>("SELECT Users.UserID, Users.FirstName, Users.LastName, Users.EmailAddress, Users.PhoneNumber, Events.EventID, Events.EventName\nFROM Events INNER JOIN Users\nON Users.EventID = Events.EventID\nORDER BY  Users.UserID WHERE EVENTID = @id;");
         }
     }
 }
