@@ -10,6 +10,7 @@ namespace FinalProject2
         public void UpdateEvent(Event instance);
         public void InsertEvent(Event instanceToInsert);
         public void DeleteEvent(Event instance);
+        public int GetRSVPCount();
     }
 }
 
