@@ -31,7 +31,7 @@ namespace FinalProject2
 
         public int GetRSVPCount()
         {
-            throw new NotImplementedException();
+            return _conn.Query<User>("SELECT * FROM USERS WHERE EventID = @id;").Count();
         }
 
         public void InsertEvent(Event instanceToInsert)
