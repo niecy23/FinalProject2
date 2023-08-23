@@ -17,6 +17,7 @@ namespace FinalProject2
         public IEnumerable<User> GetRSVPs(int id);
 
         public IEnumerable<User> GetAllUsers(int id);
+        
     }
 }
 
