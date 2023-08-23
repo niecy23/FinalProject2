@@ -65,13 +65,29 @@ namespace FinalProject2.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult GetUsersByEvent(int id)
-        {
-            var rsvps = repo.GetUsersByEvent(id);
-            return View(rsvps);
-        }
+        //public IActionResult GetUsersByEvent(int id)
+        //{
+        //    var rsvps = repo.GetUsersByEvent(id);
+        //    return View(rsvps);
+        //}
 
-        public IActionResult WhateverPage (int id)
+        public IActionResult EventDetails(int eventId)
+        {
+            var eventData = repo.GetAllEvents().FirstOrDefault(e => e.EventID == eventId);
+            var usersAttending = repo.GetAllUsers(eventId).Where(eventId => eventId.EventID == eventId).ToList();
+
+            var viewModel = new EventDetailsViewModel
+            {
+                Event = eventData,
+                UsersAttending = usersAttending
+            };
+
+            return View(viewModel);
+        }
+    
+
+
+    public IActionResult WhateverPage (int id)
         {
             var instance = repo.GetEvent(id);
 

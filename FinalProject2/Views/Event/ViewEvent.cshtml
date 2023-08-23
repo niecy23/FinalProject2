@@ -1,6 +1,6 @@
-﻿@model Event
+﻿@model EventDetailsViewModel
 
-<h2>@Model.EventName Information</h2>
+<h2>@Model.Event.EventName Information</h2>
 
 <h5 class="display-7">RSVP Count: @Model</h5>
 
@@ -21,6 +21,14 @@
     </tr>
 </table>
 
+<h3>Users Attending:</h3>
+<ul>
+    @foreach (var user in Model.UsersAttending)
+{
+            <li>@user.UserID</li>
+}
+</ul>
+
 <div style="display: block">
     <a href="/Event/UpdateEvent/@Model.EventID">Update this Event</a>
 </div>
@@ -33,5 +41,3 @@
         <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this Event" />
     }
 </div>
-
-
