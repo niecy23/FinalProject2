@@ -73,14 +73,24 @@ namespace FinalProject2.Controllers
 
         public IActionResult EventDetails(int eventId)
         {
-            var eventData = repo.Events.FirstOrDefault(e => e.EventID == eventId);
-            var usersAttending = repo.Users.Where(u => u.EventID == eventId).ToList();
+            var eventData = repo.GetAllEvents().FirstOrDefault(e => e.EventID == eventId);
+            var usersAttending = repo.GetAllUsers(eventId).Where(u => u.EventID == eventId).ToList();
 
-            var viewModel = new EventDetailsViewModel
+            var viewModel = new Event
             {
-                Event = eventData,
+                Events = eventData,
                 UsersAttending = usersAttending
             };
+
+            if (eventData == null)
+            {
+                return View("EventNotFound");
+            }
+
+            if (usersAttending == null)
+            {
+                return View("UsersNotFound");
+            }
 
             return View(viewModel);
         }

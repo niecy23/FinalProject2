@@ -1,8 +1,8 @@
-﻿@model EventDetailsViewModel
+﻿@model Event
 
-<h2>@Model.Event.EventName Information</h2>
+<h2>@Model.EventName Information</h2>
 
-<h5 class="display-7">RSVP Count: @Model</h5>
+@*<h5 class="display-7">RSVP Count: @Model.UsersAttending.Count</h5>*@
 
 <table class="table">
     <tr>
@@ -13,7 +13,7 @@
         <th>Description</th>
     </tr>
     <tr>
-        <td><a href=/Event/ViewEvent/@Model.EventID>@Model.EventID </a></td>
+        <td><a href="/Event/ViewEvent/@Model.EventID">@Model.EventID </a></td>
         <td>@Model.EventName</td>
         <td>@Model.DateAndTime</td>
         <td>@Model.Location</td>
@@ -24,9 +24,9 @@
 <h3>Users Attending:</h3>
 <ul>
     @foreach (var user in Model.UsersAttending)
-{
-            <li>@user.UserID</li>
-}
+    {
+        <li>@user.UserID</li>
+    }
 </ul>
 
 <div style="display: block">
